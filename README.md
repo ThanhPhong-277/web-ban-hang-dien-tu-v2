@@ -18,7 +18,7 @@ Trang web bán sản phẩm ASUS ROG với đầy đủ chức năng.
 - LocalStorage
 
 ## Triển khai
-Website được deploy trên Vercel: [https://asus-rog-store.vercel.app](https://asus-rog-store.vercel.app)
+Website được deploy trên Vercel: [https://vercel.com]([https://asus-rog-store.vercel.app](https://vercel.com/new?teamSlug=phongles-projects-396a4ecf))
 
 ## Tài khoản mẫu
 - Admin: `admin@rogstore.vn` / `admin123`
