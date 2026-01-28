@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Trang chủ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                    <span>ROG STORE</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="products.html"><i class="fas fa-gamepad"></i> Sản phẩm</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ hàng <span id="cart-count" class="cart-count">0</span></a></li>
+                    <li><a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="inventory.html"><i class="fas fa-boxes"></i> Kho hàng</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                <a href="register.html" class="btn btn-register"><i class="fas fa-user-plus"></i> Đăng ký</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>KHÁM PHÁ THẾ GIỚI <span class="highlight">ASUS ROG</span></h1>
+                <p>Trải nghiệm công nghệ gaming đỉnh cao với hiệu năng vượt trội và thiết kế độc đáo</p>
+                <a href="#featured-products" class="btn btn-primary">Khám phá ngay <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="https://dlcdnwebimgs.asus.com/gain/7E23D645-1C98-4AF1-AD90-9C3769BA1401/w717/h525" alt="ASUS ROG Products">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Khám phá sản phẩm -->
+            <section class="explore-section">
+                <h2 class="section-title">KHÁM PHÁ SẢN PHẨM</h2>
+                <p class="section-subtitle">Chọn lựa thiết bị gaming hoàn hảo cho trải nghiệm chiến game đỉnh cao</p>
+                
+                <div class="categories">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Laptop Gaming</h3>
+                        <p>Hiệu năng mạnh mẽ, thiết kế tối ưu cho game thủ</p>
+                        <a href="products.html?category=laptop" class="btn btn-outline">Xem sản phẩm</a>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Màn hình Gaming</h3>
+                        <p>Tần số quét cao, độ phản hồi nhanh, hình ảnh sắc nét</p>
+                        <a href="products.html?category=monitor" class="btn btn-outline">Xem sản phẩm</a>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3>Bàn phím Gaming</h3>
+                        <p>Phản hồi nhanh, đèn RGB tùy chỉnh, độ bền cao</p>
+                        <a href="products.html?category=keyboard" class="btn btn-outline">Xem sản phẩm</a>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-mouse"></i>
+                        </div>
+                        <h3>Chuột Gaming</h3>
+                        <p>Độ chính xác cao, thiết kế ergonomic, cảm biến tiên tiến</p>
+                        <a href="products.html?category=mouse" class="btn btn-outline">Xem sản phẩm</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sản phẩm nổi bật -->
+            <section id="featured-products" class="featured-products">
+                <h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
+                <p class="section-subtitle">Những sản phẩm được ưa chuộng nhất từ ASUS ROG</p>
+                
+                <div class="products-grid" id="featured-products-grid">
+                    <!-- Sản phẩm sẽ được tải bằng JavaScript -->
+                </div>
+                
+                <div class="text-center">
+                    <a href="products.html" class="btn btn-primary">Xem tất cả sản phẩm <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </section>
+            
+            <!-- Thông tin thêm -->
+            <section class="info-section">
+                <div class="info-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Giao hàng miễn phí</h3>
+                    <p>Miễn phí vận chuyển cho đơn hàng từ 5 triệu</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Bảo hành chính hãng</h3>
+                    <p>Bảo hành từ 12 đến 24 tháng tùy sản phẩm</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ kỹ thuật chuyên nghiệp</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Đổi trả dễ dàng</h3>
+                    <p>Đổi trả trong vòng 7 ngày nếu có lỗi</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                        <span>ASUS ROG STORE</span>
+                    </div>
+                    <p>Địa chỉ: Tòa nhà ASUS, Quận 1, TP.HCM</p>
+                    <p>Email: contact@rogstore.vn</p>
+                    <p>Hotline: 1800 9999</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Danh mục sản phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=laptop">Laptop Gaming</a></li>
+                        <li><a href="products.html?category=monitor">Màn hình Gaming</a></li>
+                        <li><a href="products.html?category=keyboard">Bàn phím Gaming</a></li>
+                        <li><a href="products.html?category=mouse">Chuột Gaming</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách thanh toán</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>Đăng ký nhận tin khuyến mãi</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button class="btn btn-primary">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Tất cả các quyền được bảo lưu.</p>
+                <p>Website được thiết kế cho mục đích học tập và demo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tải sản phẩm nổi bật khi trang tải xong
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFeaturedProducts();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

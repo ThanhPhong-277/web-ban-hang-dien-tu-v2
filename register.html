@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                    <span>ROG STORE</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="products.html"><i class="fas fa-gamepad"></i> Sản phẩm</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ hàng <span id="cart-count" class="cart-count">0</span></a></li>
+                    <li><a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="inventory.html"><i class="fas fa-boxes"></i> Kho hàng</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                <a href="register.html" class="btn btn-register active"><i class="fas fa-user-plus"></i> Đăng ký</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Đăng ký</span>
+            </div>
+            
+            <!-- Form đăng ký -->
+            <section class="auth-section">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+                        <p>Tạo tài khoản để mua sắm và quản lý đơn hàng</p>
+                    </div>
+                    
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-username">Tên đăng nhập *</label>
+                            <input type="text" id="register-username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">Email *</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">Mật khẩu *</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-confirm-password">Xác nhận mật khẩu *</label>
+                            <input type="password" id="register-confirm-password" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Đăng ký
+                        </button>
+                    </form>
+                    
+                    <div class="auth-links">
+                        <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                        <span>ASUS ROG STORE</span>
+                    </div>
+                    <p>Địa chỉ: Tòa nhà ASUS, Quận 1, TP.HCM</p>
+                    <p>Email: contact@rogstore.vn</p>
+                    <p>Hotline: 1800 9999</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Danh mục sản phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=laptop">Laptop Gaming</a></li>
+                        <li><a href="products.html?category=monitor">Màn hình Gaming</a></li>
+                        <li><a href="products.html?category=keyboard">Bàn phím Gaming</a></li>
+                        <li><a href="products.html?category=mouse">Chuột Gaming</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách thanh toán</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>Đăng ký nhận tin khuyến mãi</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button class="btn btn-primary">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Tất cả các quyền được bảo lưu.</p>
+                <p>Website được thiết kế cho mục đích học tập và demo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Xử lý form đăng ký khi trang tải xong
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            
+            const registerForm = document.getElementById('register-form');
+            if (registerForm) {
+                registerForm.addEventListener('submit', handleRegister);
+            }
+        });
+    </script>
+</body>
+</html>

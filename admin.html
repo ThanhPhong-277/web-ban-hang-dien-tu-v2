@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Quản trị</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                    <span>ROG STORE</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="products.html"><i class="fas fa-gamepad"></i> Sản phẩm</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ hàng <span id="cart-count" class="cart-count">0</span></a></li>
+                    <li><a href="admin.html" class="active"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="inventory.html"><i class="fas fa-boxes"></i> Kho hàng</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                <a href="register.html" class="btn btn-register"><i class="fas fa-user-plus"></i> Đăng ký</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Quản trị</span>
+            </div>
+            
+            <!-- Tiêu đề trang -->
+            <section class="page-header">
+                <h1>QUẢN TRỊ SẢN PHẨM</h1>
+                <p>Thêm, sửa, xóa sản phẩm trong cửa hàng</p>
+            </section>
+            
+            <!-- Thông báo -->
+            <div id="admin-message" class="message" style="display: none;"></div>
+            
+            <!-- Form thêm/sửa sản phẩm -->
+            <section class="admin-section">
+                <h2 class="section-title" id="form-title">THÊM SẢN PHẨM MỚI</h2>
+                
+                <form id="product-form" class="admin-form">
+                    <input type="hidden" id="product-id" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-name">Tên sản phẩm *</label>
+                            <input type="text" id="product-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-category">Danh mục *</label>
+                            <select id="product-category" required>
+                                <option value="">Chọn danh mục</option>
+                                <option value="laptop">Laptop Gaming</option>
+                                <option value="monitor">Màn hình Gaming</option>
+                                <option value="keyboard">Bàn phím Gaming</option>
+                                <option value="mouse">Chuột Gaming</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-price">Giá (VNĐ) *</label>
+                            <input type="number" id="product-price" min="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-stock">Số lượng tồn kho *</label>
+                            <input type="number" id="product-stock" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-description">Mô tả sản phẩm *</label>
+                        <textarea id="product-description" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-colors">Màu sắc (phân cách bằng dấu phẩy, để trống nếu không có)</label>
+                        <input type="text" id="product-colors" placeholder="Ví dụ: Đen, Trắng, Xám">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-image-url">URL hình ảnh *</label>
+                        <input type="text" id="product-image-url" required placeholder="https://example.com/image.jpg">
+                        <small>Hoặc chọn ảnh từ thư viện:</small>
+                        <div class="image-preview-grid" id="image-options">
+                            <!-- Các tùy chọn hình ảnh sẽ được tải bằng JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <i class="fas fa-plus"></i> Thêm sản phẩm
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="reset-btn">
+                            <i class="fas fa-redo"></i> Làm mới
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Danh sách sản phẩm để quản lý -->
+            <section class="admin-products-section">
+                <h2 class="section-title">DANH SÁCH SẢN PHẨM</h2>
+                
+                <div class="admin-products-filter">
+                    <select id="admin-category-filter">
+                        <option value="all">Tất cả danh mục</option>
+                        <option value="laptop">Laptop Gaming</option>
+                        <option value="monitor">Màn hình Gaming</option>
+                        <option value="keyboard">Bàn phím Gaming</option>
+                        <option value="mouse">Chuột Gaming</option>
+                    </select>
+                    
+                    <input type="text" id="admin-search" placeholder="Tìm kiếm sản phẩm...">
+                </div>
+                
+                <div class="admin-products-table-container">
+                    <table class="admin-products-table" id="admin-products-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Giá</th>
+                                <th>Tồn kho</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-products-list">
+                            <!-- Danh sách sản phẩm sẽ được tải bằng JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://cdn.worldvectorlogo.com/logos/rog-republic-of-gamers-1.svg" alt="ASUS ROG Logo">
+                        <span>ASUS ROG STORE</span>
+                    </div>
+                    <p>Địa chỉ: Tòa nhà ASUS, Quận 1, TP.HCM</p>
+                    <p>Email: contact@rogstore.vn</p>
+                    <p>Hotline: 1800 9999</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Danh mục sản phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=laptop">Laptop Gaming</a></li>
+                        <li><a href="products.html?category=monitor">Màn hình Gaming</a></li>
+                        <li><a href="products.html?category=keyboard">Bàn phím Gaming</a></li>
+                        <li><a href="products.html?category=mouse">Chuột Gaming</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách thanh toán</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>Đăng ký nhận tin khuyến mãi</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button class="btn btn-primary">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Tất cả các quyền được bảo lưu.</p>
+                <p>Website được thiết kế cho mục đích học tập và demo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tải sản phẩm và hình ảnh khi trang tải xong
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAdminProducts();
+            loadImageOptions();
+            updateCartCount();
+            
+            // Xử lý form thêm/sửa sản phẩm
+            const productForm = document.getElementById('product-form');
+            const resetBtn = document.getElementById('reset-btn');
+            const adminCategoryFilter = document.getElementById('admin-category-filter');
+            const adminSearch = document.getElementById('admin-search');
+            
+            productForm.addEventListener('submit', handleProductFormSubmit);
+            resetBtn.addEventListener('click', resetProductForm);
+            adminCategoryFilter.addEventListener('change', filterAdminProducts);
+            adminSearch.addEventListener('input', filterAdminProducts);
+            
+            // Xử lý chọn hình ảnh từ thư viện
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('image-option')) {
+                    e.preventDefault();
+                    const imageUrl = e.target.getAttribute('data-image');
+                    document.getElementById('product-image-url').value = imageUrl;
+                    
+                    // Đánh dấu hình ảnh được chọn
+                    document.querySelectorAll('.image-option').forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                    e.target.classList.add('selected');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
