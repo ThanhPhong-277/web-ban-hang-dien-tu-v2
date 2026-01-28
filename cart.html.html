@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Giỏ Hàng</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo_logotype_Republic_of_Gamers_logo-512.png" alt="ASUS ROG Logo">
+                <span>ASUS ROG STORE - GIỎ HÀNG</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                    <li><a href="#products"><i class="fas fa-gamepad"></i> Sản Phẩm</a></li>
+                    <li><a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a></li>
+                    <li><a href="auth.html"><i class="fas fa-user"></i> Tài Khoản</a></li>
+                    <li><a href="admin.html"><i class="fas fa-cog"></i> Quản Trị</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon-container">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart">
+        <div class="container">
+            <h2 class="section-title">Giỏ Hàng Của Bạn</h2>
+            
+            <div class="cart-container">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h3><i class="fas fa-receipt"></i> Tóm Tắt Đơn Hàng</h3>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Tạm Tính:</span>
+                            <span id="subtotal">0 VND</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Phí Vận Chuyển:</span>
+                            <span id="shipping">0 VND</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Giảm Giá:</span>
+                            <span id="discount">0 VND</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Tổng Cộng:</span>
+                            <span id="total">0 VND</span>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-code">
+                        <input type="text" id="promoCode" placeholder="Mã giảm giá">
+                        <button class="btn btn-apply" id="applyPromo">Áp Dụng</button>
+                    </div>
+                    
+                    <div class="checkout-buttons">
+                        <button class="btn btn-continue" onclick="window.location.href='index.html'">
+                            <i class="fas fa-shopping-bag"></i> Tiếp Tục Mua Hàng
+                        </button>
+                        <button class="btn btn-checkout" id="checkoutBtn">
+                            <i class="fas fa-credit-card"></i> Thanh Toán
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo.svg.png" alt="ASUS ROG Logo">
+                    <span>ASUS ROG STORE - GIỎ HÀNG</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="index.html#products">Sản Phẩm</a></li>
+                        <li><a href="cart.html">Giỏ Hàng</a></li>
+                        <li><a href="auth.html">Tài Khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Giỏ Hàng.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            updateCartCount();
+            
+            // Apply promo code
+            document.getElementById('applyPromo').addEventListener('click', function() {
+                const promoCode = document.getElementById('promoCode').value.toUpperCase();
+                let discount = 0;
+                
+                if (promoCode === 'ROG10') {
+                    discount = 10;
+                    alert('Áp dụng thành công mã giảm giá 10%!');
+                } else if (promoCode === 'ROG20') {
+                    discount = 20;
+                    alert('Áp dụng thành công mã giảm giá 20%!');
+                } else if (promoCode) {
+                    alert('Mã giảm giá không hợp lệ!');
+                    document.getElementById('promoCode').value = '';
+                    discount = 0;
+                }
+                
+                // Save discount to localStorage
+                localStorage.setItem('cartDiscount', discount.toString());
+                loadCart();
+            });
+            
+            // Checkout button
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                if (cart.length === 0) {
+                    alert('Giỏ hàng của bạn đang trống!');
+                    return;
+                }
+                
+                // Check if user is logged in
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) {
+                    alert('Vui lòng đăng nhập để thanh toán!');
+                    window.location.href = 'auth.html';
+                    return;
+                }
+                
+                // Check inventory
+                const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+                let outOfStockItems = [];
+                
+                cart.forEach(item => {
+                    const inventoryItem = inventory.find(inv => inv.productId === item.id);
+                    if (!inventoryItem || inventoryItem.quantity < item.quantity) {
+                        outOfStockItems.push(item.name);
+                    }
+                });
+                
+                if (outOfStockItems.length > 0) {
+                    alert(`Sản phẩm ${outOfStockItems.join(', ')} không đủ hàng trong kho!`);
+                    return;
+                }
+                
+                // Process checkout
+                if (confirm('Xác nhận thanh toán đơn hàng?')) {
+                    // Update inventory
+                    cart.forEach(item => {
+                        const inventoryItem = inventory.find(inv => inv.productId === item.id);
+                        if (inventoryItem) {
+                            inventoryItem.quantity -= item.quantity;
+                        }
+                    });
+                    
+                    localStorage.setItem('inventory', JSON.stringify(inventory));
+                    
+                    // Clear cart
+                    localStorage.removeItem('cart');
+                    localStorage.removeItem('cartDiscount');
+                    
+                    alert('Thanh toán thành công! Cảm ơn bạn đã mua hàng tại ASUS ROG Store.');
+                    loadCart();
+                    updateCartCount();
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+        
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cartItems');
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Giỏ hàng của bạn đang trống</h3>
+                        <p>Hãy thêm sản phẩm vào giỏ hàng để tiếp tục mua sắm</p>
+                        <a href="index.html" class="btn">Tiếp Tục Mua Sắm</a>
+                    </div>
+                `;
+                
+                // Update summary
+                updateCartSummary(0, 0, 0);
+                return;
+            }
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const product = getProductById(item.id);
+                if (!product) return;
+                
+                const itemTotal = product.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-name">${product.name}</h3>
+                        <p class="cart-item-category">${getCategoryName(product.category)}</p>
+                        <p class="cart-item-desc">${product.description.substring(0, 80)}...</p>
+                        <div class="cart-item-price">${formatPrice(product.price)} VND</div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn minus" onclick="updateCartQuantity('${item.id}', -1)">-</button>
+                        <span class="quantity-display">${item.quantity}</span>
+                        <button class="quantity-btn plus" onclick="updateCartQuantity('${item.id}', 1)">+</button>
+                    </div>
+                    <div class="cart-item-total">
+                        <div class="total-price">${formatPrice(itemTotal)} VND</div>
+                        <button class="btn-remove" onclick="removeFromCart('${item.id}')">
+                            <i class="fas fa-trash"></i> Xóa
+                        </button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            // Update summary
+            updateCartSummary(subtotal);
+        }
+        
+        function updateCartSummary(subtotal) {
+            const shipping = subtotal > 0 ? 50000 : 0;
+            const discountPercentage = parseInt(localStorage.getItem('cartDiscount')) || 0;
+            const discount = subtotal * (discountPercentage / 100);
+            const total = subtotal + shipping - discount;
+            
+            document.getElementById('subtotal').textContent = formatPrice(subtotal) + ' VND';
+            document.getElementById('shipping').textContent = formatPrice(shipping) + ' VND';
+            document.getElementById('discount').textContent = formatPrice(discount) + ' VND';
+            document.getElementById('total').textContent = formatPrice(total) + ' VND';
+        }
+        
+        function updateCartQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += change;
+                
+                // Remove item if quantity is 0 or less
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+                updateCartCount();
+            }
+        }
+        
+        function removeFromCart(productId) {
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart = cart.filter(item => item.id !== productId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+                updateCartCount();
+                alert('Sản phẩm đã được xóa khỏi giỏ hàng!');
+            }
+        }
+    </script>
+</body>
+</html>

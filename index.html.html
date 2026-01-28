@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Trang Chủ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo_logotype_Republic_of_Gamers_logo-512.png" alt="ASUS ROG Logo">
+                <span>ASUS ROG STORE</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                    <li><a href="#products"><i class="fas fa-gamepad"></i> Sản Phẩm</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a></li>
+                    <li><a href="auth.html"><i class="fas fa-user"></i> Tài Khoản</a></li>
+                    <li><a href="admin.html"><i class="fas fa-cog"></i> Quản Trị</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ASUS <span class="rog-red">ROG</span> - VƯỢT TRÊN MỌI GIỚI HẠN</h1>
+                <p>Khám phá bộ sưu tập gaming gear cao cấp dành cho game thủ chuyên nghiệp</p>
+                <a href="#products" class="btn">Khám Phá Ngay</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://dlcdnwebimgs.asus.com/gain/1F79DB12-6A21-41C4-A7C2-17FA0835EC7D/w250/fwebp" alt="ASUS ROG Products">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Danh Mục Sản Phẩm</h2>
+            <div class="category-grid">
+                <a href="#laptops" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Laptop Gaming</h3>
+                    <p>Hiệu năng đỉnh cao cho trải nghiệm gaming mượt mà</p>
+                </a>
+                <a href="#monitors" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Màn Hình Gaming</h3>
+                    <p>Tần số quét cao, độ phản hồi nhanh cho từng chuyển động</p>
+                </a>
+                <a href="#keyboards" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Bàn Phím Gaming</h3>
+                    <p>Công tắc cơ học, RGB đồng bộ và độ bền vượt trội</p>
+                </a>
+                <a href="#mice" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>Chuột Gaming</h3>
+                    <p>Độ chính xác cao, thiết kế ergonomic cho hiệu suất tối đa</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="laptops">Laptop</button>
+                <button class="filter-btn" data-filter="monitors">Màn Hình</button>
+                <button class="filter-btn" data-filter="keyboards">Bàn Phím</button>
+                <button class="filter-btn" data-filter="mice">Chuột</button>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded dynamically from localStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo.svg.png" alt="ASUS ROG Logo">
+                    <span>ASUS ROG STORE</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="#products">Sản Phẩm</a></li>
+                        <li><a href="cart.html">Giỏ Hàng</a></li>
+                        <li><a href="auth.html">Tài Khoản</a></li>
+                        <li><a href="admin.html">Quản Trị</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Liên Hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường Gaming, Quận 1, TP.HCM</p>
+                    <p><i class="fas fa-phone"></i> (028) 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@rogstore.vn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load products from localStorage and display on homepage
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductsForHomepage();
+            
+            // Filter products by category
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    filterProducts(filter);
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+        
+        function loadProductsForHomepage() {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            
+            // Get all products from localStorage
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            
+            // If no products, show default products
+            if (products.length === 0) {
+                loadDefaultProducts();
+                const defaultProducts = JSON.parse(localStorage.getItem('products')) || [];
+                displayProducts(defaultProducts);
+            } else {
+                displayProducts(products);
+            }
+        }
+        
+        function displayProducts(products) {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<p class="no-products">Chưa có sản phẩm nào. Hãy thêm sản phẩm trong trang quản trị.</p>';
+                return;
+            }
+            
+            // Show only first 8 products on homepage
+            const displayProducts = products.slice(0, 8);
+            
+            displayProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = `product-card ${product.category}`;
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <span class="product-category">${getCategoryName(product.category)}</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-desc">${product.description.substring(0, 60)}...</p>
+                        <div class="product-price">${formatPrice(product.price)} VND</div>
+                        <button class="add-to-cart-btn" onclick="addToCart('${product.id}')">
+                            <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+        }
+        
+        function filterProducts(filter) {
+            const allProducts = JSON.parse(localStorage.getItem('products')) || [];
+            let filteredProducts = allProducts;
+            
+            if (filter !== 'all') {
+                filteredProducts = allProducts.filter(product => product.category === filter);
+            }
+            
+            displayProducts(filteredProducts);
+        }
+        
+        function getCategoryName(category) {
+            const categoryNames = {
+                'laptops': 'Laptop Gaming',
+                'monitors': 'Màn Hình Gaming',
+                'keyboards': 'Bàn Phím Gaming',
+                'mice': 'Chuột Gaming'
+            };
+            return categoryNames[category] || category;
+        }
+    </script>
+</body>
+</html>

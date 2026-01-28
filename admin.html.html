@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS ROG Store - Trang Quản Trị</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo_logotype_Republic_of_Gamers_logo-512.png" alt="ASUS ROG Logo">
+                <span>ASUS ROG STORE - QUẢN TRỊ</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                    <li><a href="admin.html" class="active"><i class="fas fa-cog"></i> Quản Trị</a></li>
+                    <li><a href="inventory.html"><i class="fas fa-boxes"></i> Kho Hàng</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a></li>
+                    <li><a href="auth.html"><i class="fas fa-user"></i> Tài Khoản</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Panel -->
+    <section class="admin-panel">
+        <div class="container">
+            <h2 class="section-title">Trang Quản Trị Sản Phẩm</h2>
+            
+            <div class="admin-container">
+                <!-- Sidebar for categories -->
+                <div class="admin-sidebar">
+                    <h3><i class="fas fa-list"></i> Danh Mục</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="category-tab active" data-category="all">Tất Cả Sản Phẩm</a></li>
+                        <li><a href="#" class="category-tab" data-category="laptops">Laptop Gaming</a></li>
+                        <li><a href="#" class="category-tab" data-category="monitors">Màn Hình Gaming</a></li>
+                        <li><a href="#" class="category-tab" data-category="keyboards">Bàn Phím Gaming</a></li>
+                        <li><a href="#" class="category-tab" data-category="mice">Chuột Gaming</a></li>
+                    </ul>
+                    
+                    <div class="inventory-link">
+                        <a href="inventory.html" class="btn btn-inventory">
+                            <i class="fas fa-boxes"></i> Quản Lý Kho Hàng
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Main content area -->
+                <div class="admin-main">
+                    <!-- Add Product Form -->
+                    <div class="add-product-form">
+                        <h3><i class="fas fa-plus-circle"></i> Thêm Sản Phẩm Mới</h3>
+                        <form id="productForm">
+                            <div class="form-group">
+                                <label for="productName">Tên Sản Phẩm:</label>
+                                <input type="text" id="productName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productCategory">Danh Mục:</label>
+                                <select id="productCategory" required>
+                                    <option value="">-- Chọn Danh Mục --</option>
+                                    <option value="laptops">Laptop Gaming</option>
+                                    <option value="monitors">Màn Hình Gaming</option>
+                                    <option value="keyboards">Bàn Phím Gaming</option>
+                                    <option value="mice">Chuột Gaming</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productPrice">Giá (VND):</label>
+                                <input type="number" id="productPrice" min="0" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productDescription">Mô Tả Sản Phẩm:</label>
+                                <textarea id="productDescription" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productImage">Hình Ảnh (URL):</label>
+                                <input type="text" id="productImage" placeholder="https://example.com/image.jpg" required>
+                                <small>Hoặc chọn hình ảnh mẫu bên dưới:</small>
+                                <div class="sample-images">
+                                    <div class="sample-img" data-url="https://dlcdnwebimgs.asus.com/gain/1F79DB12-6A21-41C4-A7C2-17FA0835EC7D/w250/fwebp">
+                                        <img src="https://dlcdnwebimgs.asus.com/gain/1F79DB12-6A21-41C4-A7C2-17FA0835EC7D/w250/fwebp" alt="ROG Laptop">
+                                        <span>ROG Laptop</span>
+                                    </div>
+                                    <div class="sample-img" data-url="https://dlcdnwebimgs.asus.com/gain/FA28F522-667A-427D-A80C-CFA1F00F9FA6/w250/fwebp">
+                                        <img src="https://dlcdnwebimgs.asus.com/gain/FA28F522-667A-427D-A80C-CFA1F00F9FA6/w250/fwebp" alt="ROG Monitor">
+                                        <span>ROG Monitor</span>
+                                    </div>
+                                    <div class="sample-img" data-url="https://dlcdnwebimgs.asus.com/gain/B7D52D5A-05B5-42B0-8BA2-3199B5FAA6C2/w250/fwebp">
+                                        <img src="https://dlcdnwebimgs.asus.com/gain/B7D52D5A-05B5-42B0-8BA2-3199B5FAA6C2/w250/fwebp" alt="ROG Keyboard">
+                                        <span>ROG Keyboard</span>
+                                    </div>
+                                    <div class="sample-img" data-url="https://dlcdnwebimgs.asus.com/gain/6C9EB461-FDA5-44BC-A76B-C1A1E49B69FF/w250/fwebp">
+                                        <img src="https://dlcdnwebimgs.asus.com/gain/6C9EB461-FDA5-44BC-A76B-C1A1E49B69FF/w250/fwebp" alt="ROG Mouse">
+                                        <span>ROG Mouse</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-add"><i class="fas fa-plus"></i> Thêm Sản Phẩm</button>
+                                <button type="button" class="btn btn-cancel" id="cancelEdit">Hủy Chỉnh Sửa</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Products List -->
+                    <div class="products-list">
+                        <h3><i class="fas fa-list-ul"></i> Danh Sách Sản Phẩm</h3>
+                        <div class="table-container">
+                            <table id="productsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Hình Ảnh</th>
+                                        <th>Tên Sản Phẩm</th>
+                                        <th>Danh Mục</th>
+                                        <th>Giá</th>
+                                        <th>Mô Tả</th>
+                                        <th>Hành Động</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody">
+                                    <!-- Products will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/ROG_logo.svg/2560px-ROG_logo.svg.png" alt="ASUS ROG Logo">
+                    <span>ASUS ROG STORE - QUẢN TRỊ</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="admin.html">Quản Trị</a></li>
+                        <li><a href="inventory.html">Kho Hàng</a></li>
+                        <li><a href="cart.html">Giỏ Hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASUS ROG Store. Trang Quản Trị.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Product management functionality
+        let currentEditId = null;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductsForAdmin();
+            
+            // Form submission
+            const productForm = document.getElementById('productForm');
+            productForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const productName = document.getElementById('productName').value;
+                const productCategory = document.getElementById('productCategory').value;
+                const productPrice = parseInt(document.getElementById('productPrice').value);
+                const productDescription = document.getElementById('productDescription').value;
+                const productImage = document.getElementById('productImage').value;
+                
+                if (currentEditId) {
+                    // Update existing product
+                    updateProduct(currentEditId, {
+                        name: productName,
+                        category: productCategory,
+                        price: productPrice,
+                        description: productDescription,
+                        image: productImage
+                    });
+                    
+                    // Reset form
+                    productForm.reset();
+                    currentEditId = null;
+                    document.getElementById('cancelEdit').style.display = 'none';
+                } else {
+                    // Add new product
+                    addProduct({
+                        name: productName,
+                        category: productCategory,
+                        price: productPrice,
+                        description: productDescription,
+                        image: productImage
+                    });
+                    
+                    // Reset form
+                    productForm.reset();
+                }
+                
+                // Reload products list
+                loadProductsForAdmin();
+                
+                // Show success message
+                alert('Sản phẩm đã được lưu thành công!');
+            });
+            
+            // Cancel edit button
+            document.getElementById('cancelEdit').addEventListener('click', function() {
+                document.getElementById('productForm').reset();
+                currentEditId = null;
+                this.style.display = 'none';
+            });
+            
+            // Category tabs
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Filter products by category
+                    const category = this.getAttribute('data-category');
+                    filterAdminProducts(category);
+                });
+            });
+            
+            // Sample image selection
+            const sampleImages = document.querySelectorAll('.sample-img');
+            sampleImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    const url = this.getAttribute('data-url');
+                    document.getElementById('productImage').value = url;
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+        
+        function loadProductsForAdmin() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const tableBody = document.getElementById('productsTableBody');
+            tableBody.innerHTML = '';
+            
+            if (products.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="no-products">
+                            <i class="fas fa-box-open"></i> Chưa có sản phẩm nào. Hãy thêm sản phẩm mới!
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><img src="${product.image}" alt="${product.name}" class="table-product-img"></td>
+                    <td>${product.name}</td>
+                    <td><span class="category-badge ${product.category}">${getCategoryName(product.category)}</span></td>
+                    <td>${formatPrice(product.price)} VND</td>
+                    <td class="product-desc-cell">${product.description.substring(0, 50)}...</td>
+                    <td>
+                        <button class="btn-edit" onclick="editProduct('${product.id}')">
+                            <i class="fas fa-edit"></i> Sửa
+                        </button>
+                        <button class="btn-delete" onclick="deleteProduct('${product.id}')">
+                            <i class="fas fa-trash"></i> Xóa
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        function filterAdminProducts(category) {
+            const allProducts = JSON.parse(localStorage.getItem('products')) || [];
+            const tableBody = document.getElementById('productsTableBody');
+            tableBody.innerHTML = '';
+            
+            let filteredProducts = allProducts;
+            
+            if (category !== 'all') {
+                filteredProducts = allProducts.filter(product => product.category === category);
+            }
+            
+            if (filteredProducts.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="no-products">
+                            <i class="fas fa-box-open"></i> Không có sản phẩm nào trong danh mục này.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            filteredProducts.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><img src="${product.image}" alt="${product.name}" class="table-product-img"></td>
+                    <td>${product.name}</td>
+                    <td><span class="category-badge ${product.category}">${getCategoryName(product.category)}</span></td>
+                    <td>${formatPrice(product.price)} VND</td>
+                    <td class="product-desc-cell">${product.description.substring(0, 50)}...</td>
+                    <td>
+                        <button class="btn-edit" onclick="editProduct('${product.id}')">
+                            <i class="fas fa-edit"></i> Sửa
+                        </button>
+                        <button class="btn-delete" onclick="deleteProduct('${product.id}')">
+                            <i class="fas fa-trash"></i> Xóa
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        function editProduct(productId) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productCategory').value = product.category;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productDescription').value = product.description;
+                document.getElementById('productImage').value = product.image;
+                
+                currentEditId = productId;
+                document.getElementById('cancelEdit').style.display = 'inline-block';
+                
+                // Scroll to form
+                document.querySelector('.add-product-form').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function deleteProduct(productId) {
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                let products = JSON.parse(localStorage.getItem('products')) || [];
+                products = products.filter(p => p.id !== productId);
+                localStorage.setItem('products', JSON.stringify(products));
+                
+                // Also remove from inventory
+                let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+                inventory = inventory.filter(item => item.productId !== productId);
+                localStorage.setItem('inventory', JSON.stringify(inventory));
+                
+                loadProductsForAdmin();
+                alert('Sản phẩm đã được xóa thành công!');
+            }
+        }
+    </script>
+</body>
+</html>
